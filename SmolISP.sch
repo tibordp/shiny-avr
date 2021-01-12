@@ -131,70 +131,36 @@ $EndComp
 NoConn ~ 2950 1700
 NoConn ~ -4000 1050
 $Comp
-L Device:C C1
-U 1 1 5FFC0260
-P 2500 3450
-F 0 "C1" V 2248 3450 50  0000 C CNN
-F 1 "20p" V 2339 3450 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2538 3300 50  0001 C CNN
-F 3 "~" H 2500 3450 50  0001 C CNN
-	1    2500 3450
-	0    1    1    0   
-$EndComp
-$Comp
 L Device:C C2
 U 1 1 5FFC119F
-P 2500 3750
-F 0 "C2" V 2750 3750 50  0000 C CNN
-F 1 "20p" V 2650 3750 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2538 3600 50  0001 C CNN
-F 3 "~" H 2500 3750 50  0001 C CNN
-	1    2500 3750
-	0    1    1    0   
+P 2950 4150
+F 0 "C2" H 3150 4200 50  0000 C CNN
+F 1 "20p" H 3150 4100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2988 4000 50  0001 C CNN
+F 3 "~" H 2950 4150 50  0001 C CNN
+	1    2950 4150
+	1    0    0    -1  
 $EndComp
-$Comp
-L Device:Crystal Y1
-U 1 1 5FFC2F3E
-P 2800 3600
-F 0 "Y1" V 3100 3550 50  0000 L CNN
-F 1 "8 MHz" V 3200 3450 50  0000 L CNN
-F 2 "Crystal:Crystal_SMD_5032-2Pin_5.0x3.2mm" H 2800 3600 50  0001 C CNN
-F 3 "~" H 2800 3600 50  0001 C CNN
-	1    2800 3600
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	3300 3450 3300 3550
-Wire Wire Line
-	3300 3750 3300 3650
-Wire Wire Line
-	2350 3450 2350 3750
-Wire Wire Line
-	2650 3450 2800 3450
-Connection ~ 2800 3450
-Wire Wire Line
-	2650 3750 2800 3750
-Connection ~ 2800 3750
 $Comp
 L power:GND #PWR01
 U 1 1 5FFCCBFB
-P 2400 2750
-F 0 "#PWR01" H 2400 2500 50  0001 C CNN
-F 1 "GND" H 2405 2577 50  0000 C CNN
-F 2 "" H 2400 2750 50  0001 C CNN
-F 3 "" H 2400 2750 50  0001 C CNN
-	1    2400 2750
+P 2250 3200
+F 0 "#PWR01" H 2250 2950 50  0001 C CNN
+F 1 "GND" H 2255 3027 50  0000 C CNN
+F 2 "" H 2250 3200 50  0001 C CNN
+F 3 "" H 2250 3200 50  0001 C CNN
+	1    2250 3200
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR02
 U 1 1 5FFCDA5A
-P 2800 4600
-F 0 "#PWR02" H 2800 4350 50  0001 C CNN
-F 1 "GND" H 2805 4427 50  0000 C CNN
-F 2 "" H 2800 4600 50  0001 C CNN
-F 3 "" H 2800 4600 50  0001 C CNN
-	1    2800 4600
+P 3200 4750
+F 0 "#PWR02" H 3200 4500 50  0001 C CNN
+F 1 "GND" H 3205 4577 50  0000 C CNN
+F 2 "" H 3200 4750 50  0001 C CNN
+F 3 "" H 3200 4750 50  0001 C CNN
+	1    3200 4750
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -347,11 +313,11 @@ F 3 "" H 5600 3350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L MCU_ST_STM32F1:STM32F103C8Tx U1
+L MCU_ST_STM32F1:STM32F103C6Tx U1
 U 1 1 5FFD69DE
 P 4000 4450
 F 0 "U1" H 4500 2950 50  0000 C CNN
-F 1 "STM32F103C8Tx" H 4500 2850 50  0000 C CNN
+F 1 "STM32F103C6Tx" H 4500 2850 50  0000 C CNN
 F 2 "Package_QFP:LQFP-48_7x7mm_P0.5mm" H 3400 3050 50  0001 R CNN
 F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00161566.pdf" H 4000 4450 50  0001 C CNN
 	1    4000 4450
@@ -659,12 +625,6 @@ Wire Wire Line
 	8350 1700 8350 1550
 Wire Wire Line
 	4600 4350 5400 4350
-Wire Wire Line
-	2800 4450 2800 4600
-Wire Wire Line
-	2700 2600 2400 2600
-Wire Wire Line
-	2400 2600 2400 2750
 $Comp
 L power:+3.3V #PWR0106
 U 1 1 60326DFA
@@ -733,9 +693,9 @@ $EndComp
 Wire Wire Line
 	7700 5400 8000 5400
 Text GLabel 8300 5400 2    50   Input ~ 0
-ISP_AUX_CLOCK
+EXT_CLOCK
 Text GLabel 4600 5050 2    50   Input ~ 0
-ISP_AUX_CLOCK
+EXT_CLOCK
 Wire Wire Line
 	5400 4950 5400 5200
 $Comp
@@ -752,15 +712,14 @@ $EndComp
 $Comp
 L power:GND #PWR0108
 U 1 1 603F96C4
-P 2350 4100
-F 0 "#PWR0108" H 2350 3850 50  0001 C CNN
-F 1 "GND" H 2355 3927 50  0000 C CNN
-F 2 "" H 2350 4100 50  0001 C CNN
-F 3 "" H 2350 4100 50  0001 C CNN
-	1    2350 4100
+P 2600 4400
+F 0 "#PWR0108" H 2600 4150 50  0001 C CNN
+F 1 "GND" H 2605 4227 50  0000 C CNN
+F 2 "" H 2600 4400 50  0001 C CNN
+F 3 "" H 2600 4400 50  0001 C CNN
+	1    2600 4400
 	1    0    0    -1  
 $EndComp
-Connection ~ 2350 3750
 NoConn ~ 3350 1500
 $Comp
 L Device:R R5
@@ -798,10 +757,6 @@ Wire Wire Line
 Text Label 3400 1400 0    50   ~ 0
 USB_CONN-
 Wire Wire Line
-	2800 3750 3300 3750
-Wire Wire Line
-	2800 3450 3300 3450
-Wire Wire Line
 	3300 3150 3300 2950
 $Comp
 L power:+3.3V #PWR03
@@ -825,8 +780,6 @@ F 3 "~" H 3300 2800 50  0001 C CNN
 	1    3300 2800
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2350 3750 2350 4100
 Connection ~ 7600 2750
 Wire Wire Line
 	7600 2750 7600 3000
@@ -834,8 +787,6 @@ Connection ~ 7600 3000
 Connection ~ 8250 3300
 Wire Wire Line
 	2700 3350 3300 3350
-Wire Wire Line
-	2700 2600 2700 3350
 Text GLabel 3200 3150 0    50   Input ~ 0
 SWD_NRST
 Wire Wire Line
@@ -843,18 +794,12 @@ Wire Wire Line
 Connection ~ 3300 3150
 Text GLabel 7600 3400 2    50   Input ~ 0
 SWD_NRST
-Text Label 2950 4450 0    50   ~ 0
+Text Label 3200 4750 2    50   ~ 0
 BOOT1
-Wire Wire Line
-	2800 4450 3300 4450
-Wire Notes Line
-	2000 2300 5850 2300
 Wire Notes Line
 	5850 2300 5850 6450
 Wire Notes Line
 	5850 6450 2000 6450
-Wire Notes Line
-	2000 6450 2000 2300
 Wire Notes Line
 	6100 2300 6100 3800
 Wire Notes Line
@@ -905,4 +850,89 @@ F 3 "~" H 4300 1150 50  0001 C CNN
 	1    4300 1150
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:C C1
+U 1 1 5FFC0260
+P 2350 4150
+F 0 "C1" H 2150 4200 50  0000 C CNN
+F 1 "20p" H 2150 4100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2388 4000 50  0001 C CNN
+F 3 "~" H 2350 4150 50  0001 C CNN
+	1    2350 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Crystal_GND24 Y1
+U 1 1 5FFC2F3E
+P 2600 3900
+F 0 "Y1" H 2100 4200 50  0000 L CNN
+F 1 "8 MHz" H 2050 4100 50  0000 L CNN
+F 2 "Crystal:Crystal_SMD_5032-4Pin_5.0x3.2mm" H 2600 3900 50  0001 C CNN
+F 3 "~" H 2600 3900 50  0001 C CNN
+	1    2600 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 3700 2600 3650
+Wire Wire Line
+	2600 3650 2800 3650
+Connection ~ 2600 4400
+Wire Wire Line
+	2600 4100 2600 4400
+Wire Wire Line
+	2350 4400 2600 4400
+Wire Wire Line
+	3300 4450 3200 4450
+Wire Wire Line
+	3200 4450 3200 4750
+Wire Wire Line
+	2350 3550 2350 3900
+Wire Notes Line
+	2000 6450 2000 2300
+Wire Notes Line
+	2000 2300 5850 2300
+Wire Wire Line
+	2350 3900 2450 3900
+Wire Wire Line
+	3300 3650 2950 3650
+Wire Wire Line
+	2350 3550 3300 3550
+Wire Wire Line
+	2350 4000 2350 3900
+Connection ~ 2350 3900
+Wire Wire Line
+	2350 4300 2350 4400
+Wire Wire Line
+	2950 4300 2950 4400
+Wire Wire Line
+	2950 3650 2950 3900
+Wire Wire Line
+	2600 4400 2800 4400
+Wire Wire Line
+	2800 3650 2800 4400
+Connection ~ 2800 4400
+Wire Wire Line
+	2800 4400 2950 4400
+Wire Wire Line
+	2750 3900 2950 3900
+Connection ~ 2950 3900
+Wire Wire Line
+	2950 3900 2950 4000
+$Comp
+L Device:R R1
+U 1 1 60136FD4
+P 2700 2950
+F 0 "R1" H 2770 2996 50  0000 L CNN
+F 1 "10k" H 2770 2905 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 2630 2950 50  0001 C CNN
+F 3 "~" H 2700 2950 50  0001 C CNN
+	1    2700 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2700 3100 2700 3350
+Wire Wire Line
+	2700 2800 2250 2800
+Wire Wire Line
+	2250 2800 2250 3200
 $EndSCHEMATC
