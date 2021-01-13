@@ -1,0 +1,26 @@
+name: "Build schematic and Gerber files"
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  generate-gerbers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: INTI-CMNB/KiBot@v0.9.0
+        with:
+          # Required - kibot config file
+          config: config.kibot.yaml
+          # optional - prefix to output defined in config
+          dir: output
+          # optional - schematic file
+          schema: "*.sch"
+          # optional - PCB design file
+          board: "*.kicad_pcb"
+      - name: upload results
+        uses: actions/upload-artifact@v2
+        with:
+          name: output
+          path: output
