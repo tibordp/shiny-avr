@@ -1,6 +1,6 @@
 # Shiny AVR Programmer
 
-USB programmer for ATtiny25/45/85 based on STM32F103C6.
+USB programmer for ATtiny25/45/85 and ATtiny24/44/84 based on STM32F103C6.
 
 ## Hardware
 
