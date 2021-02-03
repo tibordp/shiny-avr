@@ -961,7 +961,7 @@ Text GLabel 10450 2050 2    50   Input ~ 0
 ISP_CLK
 Text GLabel 10450 2150 2    50   Input ~ 0
 ISP_MISO
-Text GLabel 10450 2350 2    50   Input ~ 0
+Text GLabel 10450 2250 2    50   Input ~ 0
 ISP_MOSI
 Text GLabel 10600 3300 3    50   Input ~ 0
 ISP_RESET
@@ -1038,12 +1038,12 @@ $EndComp
 $Comp
 L Device:R R15
 U 1 1 6003EB14
-P 10050 2350
-F 0 "R15" V 10250 2350 50  0000 C CNN
-F 1 "1k" V 10150 2350 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9980 2350 50  0001 C CNN
-F 3 "~" H 10050 2350 50  0001 C CNN
-	1    10050 2350
+P 10050 2250
+F 0 "R15" V 10250 2250 50  0000 C CNN
+F 1 "1k" V 10150 2250 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9980 2250 50  0001 C CNN
+F 3 "~" H 10050 2250 50  0001 C CNN
+	1    10050 2250
 	0    1    1    0   
 $EndComp
 Wire Wire Line
@@ -1091,8 +1091,6 @@ Wire Wire Line
 Wire Wire Line
 	10150 2150 9900 2150
 Wire Wire Line
-	10200 2350 10450 2350
-Wire Wire Line
 	10150 2550 9900 2550
 Wire Wire Line
 	10600 3200 10200 3200
@@ -1103,6 +1101,8 @@ NoConn ~ 9900 1650
 NoConn ~ 9900 1750
 NoConn ~ 9900 1850
 NoConn ~ 9900 1950
-NoConn ~ 9900 2250
+NoConn ~ 9900 2350
 NoConn ~ 9900 2750
+Wire Wire Line
+	10200 2250 10450 2250
 $EndSCHEMATC
