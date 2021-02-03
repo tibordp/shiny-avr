@@ -10,13 +10,15 @@
 #define SPI_CLOCK (1000000 / 6)
 
 // Configure which pins to use:
-#define RESET PA10 // Use pin 10 to reset the target rather than SS
+#define RESET PA10
 #define LED_STATUS PA1
 
 #define PIN_MOSI PA7
 #define PIN_MISO PA6
 #define PIN_SCK PA5
 
+// TODO: Provide external clock to tinys that have had their fuses
+// borked up.
 #define PIN_EXT_CLOCK PA8
 
 #define BAUDRATE 19200
@@ -290,6 +292,8 @@ void flash(uint8_t hilo, unsigned int addr, uint8_t data) {
 }
 void commit(unsigned int addr) {
   spi_transaction(0x4C, (addr >> 8) & 0xFF, addr & 0xFF, 0);
+
+  // This delay is important, otherwise we get verification errors with avrdude
   delay(PTIME);
 }
 
