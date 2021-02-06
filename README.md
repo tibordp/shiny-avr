@@ -4,11 +4,15 @@ USB AVR ISP programmer specifically designed for ATtiny25/45/85 and ATtiny24/44/
 
 Blasphemeously designed with an STM32 microcontroller instead of an another AVR.
 
+Shiny AVR programmer provides an 16 MHz clock signal, which allows programming chips that have had their fuse bits set to require an external crystal or clock signal.
+
 ![render](./docs/render.png)
 
 # Usage
 
 Insert the ATtiny into the DIP socket on the programmer. Please make sure it is oriented the right way. It should also work for programming the ATtinys in circuit (unless there is circuitry wired to it that would interfere, which is likely, since ATtinys don't have dedicated programming pins), but since there is no standard ISP header on the board, you will need to provide an adapter cable.
+
+Shiny AVR powers ATtinys with 3.3V.
 
 ## Arduino
 
@@ -78,7 +82,6 @@ to program ATtinys that have had their fuses set to rely on external clock or cr
 
 # Roadmap
 
-- Provide an external clock for chips with fuse bits requiring it
 - High voltage programming support for chips `RSTDISBL` or debugWIRE fuse bits set  
 - Managed power supply or a PTC to prevent damaging the chips 
   that are inserted upside down in the socket.

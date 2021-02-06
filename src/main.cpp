@@ -16,9 +16,6 @@
 #define PIN_MOSI PA7
 #define PIN_MISO PA6
 #define PIN_SCK PA5
-
-// TODO: Provide external clock to tinys that have had their fuses
-// borked up.
 #define PIN_EXT_CLOCK PA8
 
 #define BAUDRATE 19200
@@ -248,7 +245,14 @@ void start_pmode() {
   // So we have to configure RESET as output here,
   // (reset_target() first sets the correct level)
   reset_target(true);
+
+  // Start the external clock at 16 MHz for ATtinys that require external clock or crystal
+  pinMode(PIN_EXT_CLOCK, OUTPUT);
+  analogWriteResolution(2);
+  analogWriteFrequency(16000000);
+  analogWrite(PIN_EXT_CLOCK, 1);
   pinMode(RESET, OUTPUT);
+  
   SPI.begin();
   SPI.beginTransaction(SPISettings(SPI_CLOCK, MSBFIRST, SPI_MODE0));
 
@@ -274,6 +278,8 @@ void end_pmode() {
   // We're about to take the target out of reset so configure SPI pins as input
   pinMode(PIN_MOSI, INPUT);
   pinMode(PIN_SCK, INPUT);
+  pinMode(PIN_EXT_CLOCK, INPUT);
+
   reset_target(false);
   pinMode(RESET, INPUT);
   pmode = 0;
