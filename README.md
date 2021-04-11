@@ -35,14 +35,14 @@ platform = atmelavr
 board = attiny85
 upload_protocol = custom
 upload_flags =
-    -C$PROJECT_PACKAGES_DIR\framework-arduino-avr-attiny\avrdude.conf
+    -C$PROJECT_PACKAGES_DIR/framework-arduino-avr-attiny/avrdude.conf
     -p$BOARD_MCU
     -P$UPLOAD_PORT
     -b$UPLOAD_SPEED
     -carduino
 upload_command = avrdude $UPLOAD_FLAGS -U flash:w:$SOURCE:i
 
-upload_port = COM3
+upload_port = <your serial port device here>
 upload_speed = 19200
 board_build.f_cpu = 16000000L
 board_fuses.lfuse = 0xD1
