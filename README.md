@@ -21,9 +21,11 @@ selecting **Tools > Programmer > Arduino as ISP** and selecting the appropriate 
 
 ## avrdude
 
-Use `-c stk500v1` command-line parameter.
+Use `-c arduino` command-line parameter.
 
 ## PlatformIO
+
+It requires some modifications to use the [avrdude.conf from ATTinyCore](https://github.com/SpenceKonde/ATTinyCore/blob/master/avr/avrdude.conf) instead of the default one bundled with PlatformIO (`chip_erase_delay` is too low in the stock one).
 
 Example config for ATtiny85
 
@@ -31,12 +33,16 @@ Example config for ATtiny85
 [env:attiny85]
 platform = atmelavr
 board = attiny85
-upload_protocol = stk500v1
+upload_protocol = custom
 upload_flags =
+    -C$PROJECT_PACKAGES_DIR\framework-arduino-avr-attiny\avrdude.conf
+    -p$BOARD_MCU
     -P$UPLOAD_PORT
     -b$UPLOAD_SPEED
+    -carduino
+upload_command = avrdude $UPLOAD_FLAGS -U flash:w:$SOURCE:i
 
-upload_port = <your serial port device here>
+upload_port = COM3
 upload_speed = 19200
 board_build.f_cpu = 16000000L
 board_fuses.lfuse = 0xD1
@@ -44,7 +50,7 @@ board_fuses.hfuse = 0xDF
 board_fuses.efuse = 0xFF
 ```
 
-Example config for ATtiny84. It requires some modifications to use the [avrdude.conf from ATTinyCore](https://github.com/SpenceKonde/ATTinyCore/blob/master/avr/avrdude.conf) instead of the default one bundled with PlatformIO (`chip_erase_delay` is too low in the stock one)
+Example config for ATtiny84
 
 ```ini
 [env:attiny84]
@@ -56,7 +62,7 @@ upload_flags =
     -p$BOARD_MCU
     -P$UPLOAD_PORT
     -b$UPLOAD_SPEED
-    -cstk500v1
+    -carduino
 upload_command = avrdude $UPLOAD_FLAGS -U flash:w:$SOURCE:i
 
 upload_port = <your serial port device here>
